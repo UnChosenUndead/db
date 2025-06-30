@@ -8,7 +8,7 @@ pub async fn connect_to_pg(conf: Conf) -> Result<Pool<Postgres>, sqlx::Error> {
         conf.pg_db_username,
         conf.pg_db_password,
         conf.pg_db_host,
-        conf.pg_db_connection_port,
+        conf.pg_db_port,
         conf.pg_db_name,
     );
     println!("{}", database_url_formated);
