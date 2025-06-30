@@ -5,11 +5,7 @@ pub async fn connect_to_pg(conf: Conf) -> Result<Pool<Postgres>, sqlx::Error> {
     // DATABASE_URL=postgres://username:password@localhost/database_name
     let database_url_formated = format!(
         "postgres://{}:{}@{}:{}/{}",
-        conf.pg_db_username,
-        conf.pg_db_password,
-        conf.pg_db_host,
-        conf.pg_db_port,
-        conf.pg_db_name,
+        conf.pg_db_username, conf.pg_db_password, conf.pg_db_host, conf.pg_db_port, conf.pg_db_name,
     );
     println!("{}", database_url_formated);
     // Create a connection pool
@@ -43,7 +39,7 @@ mod tests {
 
     fn init_test_conf() -> Conf {
         Conf {
-            pg_db_connection_port: "15444".to_string(),
+            pg_db_port: "15444".to_string(),
             pg_db_host: "127.0.0.1".to_string(),
             pg_db_name: "postgres".to_string(),
             pg_db_username: "postgres".to_string(),
